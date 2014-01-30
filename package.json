@@ -1,0 +1,11 @@
+{
+	"name": "simple-chat",
+	"version": "0.1.0",
+	"dependencies": {
+		"express": "*",
+		"socket.io": "*",
+		"ent": "*"
+	},
+	"author": "Edmeral <edmeral.aissam@gmail.com",
+	"description": "A simple chat server using Node.JS"
+}

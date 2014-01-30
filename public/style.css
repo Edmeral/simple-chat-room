@@ -1,0 +1,43 @@
+body {
+	width: 600px;
+	margin: auto;
+	padding: 0px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	color: #9A9A9A;
+	font-size: 80%;
+}
+h1 {
+	font-family: 'Oswald';
+}
+hr {
+	border: 1px;
+	background: #ccc;
+	width: 100%;
+	height: 1px;
+	margin: 0px;
+	padding: 0px;
+}
+input {
+	display: block;
+	color: #9A9AA1;
+  	font-size: 110%;
+  	font-family: 'Open Sans';
+  	margin-bottom: 20px;
+  	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 7px;
+	outline: none;
+	width: 590px;
+}
+#conversation {
+	margin: 0px;
+	padding: 0px
+	width: 100%;
+}
+.name {
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+.message {
+	margin-top: 3px;
+}
