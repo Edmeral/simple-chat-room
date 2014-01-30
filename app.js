@@ -5,7 +5,7 @@ var ent = require('ent');
 var app = express();
 var server = require('http').createServer(app);
 
-server.listen(8080);
+server.listen(process.env.PORT || 8080);
 
 app.use(express.static(__dirname + '/public'))
 .get('/', function(req, res) {
