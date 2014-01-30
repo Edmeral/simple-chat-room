@@ -22,7 +22,7 @@ socket.on('new-user', function(pseudo) {
 	$('#conversation').prepend('<p><em><strong>' + pseudo + '</strong>  has joined the chat.</em><p><hr>');
 });
 socket.on('message', function(data) {
-	$('#conversation').prepend('<p class="name">' + data.pseudo + '</p><p class="message">' + data.message + '</p><hr>');
+	$('#conversation').prepend('<p class="name he">' + data.pseudo + '</p><p class="message he">' + data.message + '</p><hr>');
 });
 
 var input = $('input');
