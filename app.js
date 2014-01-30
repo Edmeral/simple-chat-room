@@ -13,6 +13,8 @@ app.use(express.static(__dirname + '/public'))
 });
 
 var io = require('socket.io').listen(server);
+io.enable('browser client minification');
+io.enable('browser client gzip');
 
 io.sockets.on('connection', function(socket) {
 	socket.on('new-user', function(pseudo) {
