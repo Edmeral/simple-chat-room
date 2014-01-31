@@ -13,7 +13,7 @@ var escape = function(string) {
 	});
 };
 var htmlEscaper = /[&<>"'\/]/g;
-var socket = io.connect('http://simple-chat-room.herokuapp.com/');
+var socket = io.connect();
 
 
 socket.emit('new-user', pseudo);
