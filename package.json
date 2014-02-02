@@ -4,7 +4,9 @@
 	"dependencies": {
 		"express": "*",
 		"socket.io": "*",
-		"ent": "*"
+		"ent": "*",
+		"ejs": "*",
+		"easymongo": "*"
 	},
 	"author": "Edmeral <edmeral.aissam@gmail.com",
 	"description": "A simple chat server using Node.JS"
