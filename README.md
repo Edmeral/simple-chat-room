@@ -1,0 +1,1 @@
+A simple chat app written in Node.JS using socket.io for sending and delivering messages and MongoDB for storing them.
