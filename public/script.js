@@ -45,7 +45,7 @@ input.keyup(function(event) {
 			$('#conversation').prepend('<div class="animated fadeInRight"><p class="name">' + pseudo + '</p><p class="message">' + escape(input.val()) + '</p><hr></div>');
 			//Add animation
 			$('#conversation').addClass('animated fadeInDown');
-			//and then remove it animation ends
+			//and then remove it when animation ends
 			$('#conversation').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$('#conversation').removeClass('animated fadeInDown');
 			});
