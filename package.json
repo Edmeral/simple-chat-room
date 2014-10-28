@@ -1,6 +1,6 @@
 {
   "name": "simple-chat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Edmeral <edmeral.aissam@gmail.com",
   "description": "A simple chat server using Node.JS",
   "dependencies": {
