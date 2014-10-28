@@ -2,6 +2,8 @@ var express = require('express');
 var easymongo = require('easymongo');
 var ent = require('ent');
 
+var PORT = process.env.PORT || 8080;
+
 //Setting up MongoDB
 var mongo = new easymongo(process.env.MONGOLAB_URL || 'mongodb://localhost/amando');
 var posts = mongo.collection('posts');
@@ -12,9 +14,6 @@ var server = require('http').createServer(app);
 
 //Using bzip compression
 app.use(express.compress());
-
-server.listen(process.env.PORT || 8080);
-
 
 app.use(express.static(__dirname + '/public'))
 
@@ -52,3 +51,6 @@ io.sockets.on('connection', function(socket) {
 		});
 	});
 });
+
+console.log("Magic happens at http://localhost:" + PORT);
+server.listen(PORT);
