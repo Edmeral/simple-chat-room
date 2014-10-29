@@ -1,6 +1,7 @@
 var express = require('express');
 var easymongo = require('easymongo');
 var ent = require('ent');
+var compression = require('compression');
 
 var PORT = process.env.PORT || 8080;
 
@@ -10,10 +11,10 @@ var posts = mongo.collection('posts');
 
 //Setting up express
 var app = express();
-var server = require('http').createServer(app);
+var server = require('http').Server(app);
 
 //Using bzip compression
-app.use(express.compress());
+app.use(compression());
 
 app.use(express.static(__dirname + '/public'))
 
@@ -25,30 +26,23 @@ app.use(express.static(__dirname + '/public'))
 
 
 var io = require('socket.io').listen(server);
-io.enable('browser client minification');
-io.enable('browser client gzip');
+//io.enable('browser client minification');
+//io.enable('browser client gzip');
 
 io.sockets.on('connection', function(socket) {
 
 	socket.on('new-user', function(pseudo) {
-		socket.set('pseudo', pseudo);
+		socket.pseudo = pseudo;
 		socket.broadcast.emit('new-user', ent.encode(pseudo));
 	});
 
 	socket.on('message', function(message) {
-		socket.get('pseudo', function(error, pseudo) {
-			if (error) {
-				console.log(error);
-			}
-			else {
-				var content = {
-					pseudo: ent.encode(pseudo),
+		var content = {
+					pseudo: ent.encode(socket.pseudo),
 					message: ent.encode(message)
 				};
-				socket.broadcast.emit('message', content);
-				posts.save(content);
-			}
-		});
+		socket.broadcast.emit('message', content);
+		posts.save(content);
 	});
 });
 
