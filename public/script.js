@@ -1,4 +1,3 @@
-var pseudo = prompt('Choose a pseudo') || 'Anonymous';
 var htmlEscapes = {
 	'&': '&amp;',
 	'<': '&lt;',
@@ -13,8 +12,10 @@ var escape = function(string) {
 	});
 };
 var htmlEscaper = /[&<>"'\/]/g;
-var socket = io.connect();
 
+var pseudo = prompt('Choose a pseudo') || 'Anonymous';
+
+var socket = io.connect();
 
 socket.emit('new-user', pseudo);
 
@@ -27,6 +28,7 @@ socket.on('new-user', function(pseudo) {
 		$('#conversation').removeClass('animated fadeInDown');
 	});
 });
+
 socket.on('message', function(data) {
 	$('#conversation').prepend('<div class="animated fadeInLeft"><p class="name he">' + data.pseudo + '</p><p class="message he">' + data.message + '</p><hr></div>');
 	//Add animation
