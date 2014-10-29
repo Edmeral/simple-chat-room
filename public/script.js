@@ -13,7 +13,7 @@ var escape = function(string) {
 };
 var htmlEscaper = /[&<>"'\/]/g;
 
-var pseudo = prompt('Choose a pseudo') || 'Anonymous';
+var pseudo = escape(prompt('Choose a pseudo')) || 'Anonymous';
 
 var socket = io.connect();
 
