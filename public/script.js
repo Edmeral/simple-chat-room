@@ -6,11 +6,28 @@ var htmlEscapes = {
 	"'": '&#x27;',
 	'/': '&#x2F;'
 };
-var escape = function(string) {
-	return ('' + string).replace(htmlEscaper, function(match) {
+
+var htmlUnEscapes = {
+	'&amp;': '&',
+	'&lt;': '<',
+	'&gt;': '>',
+	'&quot;': '"',
+	'&#x27;': "'",
+	'&#x2F;': '/'
+};
+
+var escape = function(str) {
+	return ('' + str).replace(htmlEscaper, function(match) {
 		return htmlEscapes[match];
 	});
 };
+
+var unescape = function(str) {
+	return ('' + str).replace(htmlEscaper, function(match) {
+		return htmlUnEscapes[match];
+	});
+};
+
 var htmlEscaper = /[&<>"'\/]/g;
 
 var pseudo = escape(prompt('Choose a pseudo')) || 'Anonymous';
