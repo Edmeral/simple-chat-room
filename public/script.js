@@ -22,10 +22,11 @@ var escape = function(str) {
 	});
 };
 
-var unescape = function(str) {
-	return ('' + str).replace(htmlEscaper, function(match) {
-		return htmlUnEscapes[match];
-	});
+var unescapeHTML = function(str) {
+	return str.replace('&amp;', '&')
+            .replace('&quot;', '"')
+            .replace('&lt;', '<')
+            .replace('&gt;', '>');
 };
 
 var htmlEscaper = /[&<>"'\/]/g;
@@ -34,7 +35,7 @@ var pseudo = escape(prompt('Choose a pseudo')) || 'Anonymous';
 
 var socket = io.connect();
 
-socket.emit('new-user', pseudo);
+socket.emit('new-user', unescapeHTML(pseudo));
 
 socket.on('new-user', function(pseudo) {
 	$('#conversation').prepend('<div class="animated fadeInLeft"><p><em><strong>' + pseudo + '</strong>  has joined the chat.</em><p><hr></div>');
