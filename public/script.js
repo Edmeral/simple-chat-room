@@ -7,15 +7,6 @@ var htmlEscapes = {
 	'/': '&#x2F;'
 };
 
-var htmlUnEscapes = {
-	'&amp;': '&',
-	'&lt;': '<',
-	'&gt;': '>',
-	'&quot;': '"',
-	'&#x27;': "'",
-	'&#x2F;': '/'
-};
-
 var escape = function(str) {
 	return ('' + str).replace(htmlEscaper, function(match) {
 		return htmlEscapes[match];
